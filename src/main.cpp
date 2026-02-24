@@ -124,6 +124,7 @@ void add_bouncer(bn::vector<Bouncer, MAX_BOUNCERS>& bouncers, bn::random& rng){
 int main() {
     bn::core::init();
 
+    bn::random rng;
     bn::vector<Bouncer, MAX_BOUNCERS> bouncers ={};
 
     while(true) {
