@@ -14,6 +14,11 @@ static constexpr int HALF_SCREEN_WIDTH = bn::display::width() / 2;
 static constexpr bn::fixed MIN_X = -HALF_SCREEN_WIDTH;
 static constexpr bn::fixed MAX_X = HALF_SCREEN_WIDTH;
 
+//same as above but for y position
+static constexpr int HALF_SCREEN_HEIGHT = bn::display::height() / 2;
+static constexpr bn::fixed MIN_Y = -HALF_SCREEN_HEIGHT;
+static constexpr bn::fixed MAX_Y = HALF_SCREEN_HEIGHT;
+
 // Starting speed of a bouncer
 static constexpr bn::fixed BASE_SPEED = 2;
 
@@ -104,10 +109,10 @@ int main() {
             add_bouncer(bouncers);
         }
 
-        // if B is pressed print the average to the console
-        if(bn::keypad::b_pressed()) {
-            //BN_LOG("Average x: ", x_average(sprites));
-        }
+        // // if B is pressed print the average to the console
+        // if(bn::keypad::b_pressed()) {
+        //     //BN_LOG("Average x: ", x_average(sprites));
+        // }
 
         // for each bouncer
         for(Bouncer& bouncer : bouncers){
