@@ -52,19 +52,36 @@ class Bouncer{
 };
 
 
-bn::fixed x_average( bn::vector<bn::sprite_ptr, MAX_BOUNCERS>& sprites){
-// Add all x positions together
-bn::fixed x_sum = 0;
-for(bn::sprite_ptr sprite : sprites) {
-    x_sum += sprite.x();
-}
-bn::fixed x_average= x_sum;
-// Only divide if we have 1 or more
-// Prevents division by 0
-if(sprites.size() > 0) {
-    x_average /= sprites.size();
-}
-return x_average;
+// bn::fixed x_average( bn::vector<bn::sprite_ptr, MAX_BOUNCERS>& sprites){
+// // Add all x positions together
+// bn::fixed x_sum = 0;
+// for(bn::sprite_ptr sprite : sprites) {
+//     x_sum += sprite.x();
+// }
+// bn::fixed x_average= x_sum;
+// // Only divide if we have 1 or more
+// // Prevents division by 0
+// if(sprites.size() > 0) {
+//     x_average /= sprites.size();
+// }
+// return x_average;
+// }
+
+bn::fixed x_average(const bn::vector<Bouncer, MAX_BOUNCERS>& bouncers)
+{
+    bn::fixed x_sum = 0;
+
+    for(const Bouncer& b : bouncers)
+    {
+        x_sum += b.sprite.x();
+    }
+
+    if(bouncers.size() > 0)
+    {
+        return x_sum / bouncers.size();
+    }
+
+    return 0;
 }
 
 //method bouncer
