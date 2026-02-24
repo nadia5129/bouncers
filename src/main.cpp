@@ -7,6 +7,8 @@
 #include <bn_vector.h>
 #include <bn_log.h>
 #include <bn_backdrop.h>
+#include <bn_music.h>
+#include <bn_music_items.h>
 
 #include "bn_sprite_items_dot.h"
 
@@ -124,6 +126,10 @@ void add_bouncer(bn::vector<Bouncer, MAX_BOUNCERS>& bouncers, bn::random& rng){
 
 int main() {
     bn::core::init();
+
+     //Start background music
+    bn::music_items::outback.play();
+
     bn::backdrop::set_color(bn::color(10, 10, 20));
 
     bn::random rng;
