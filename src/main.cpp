@@ -105,17 +105,19 @@ bn::fixed x_average(const bn::vector<Bouncer, MAX_BOUNCERS>& bouncers)
 }
 
 //method bouncer
-void add_bouncer(bn::vector<Bouncer, MAX_BOUNCERS>& bouncers){
-       // Only add if we're below the maximum
-           int xs = rng.get_int(-2, 3);  
+void add_bouncer(bn::vector<Bouncer, MAX_BOUNCERS>& bouncers, bn::random& rng){
+    // Only add if we're below the maximum
+    if(bouncers.size() < bouncers.max_size()) {
+
+        int xs = rng.get_int(-2, 3);
         int ys = rng.get_int(-2, 3);
 
-    
         if(xs == 0) xs = 1;
         if(ys == 0) ys = -1;
 
         bouncers.push_back(Bouncer(xs, ys));
-            }
+    }
+}
 //dont need return statmenent for void method
 
 
@@ -127,7 +129,7 @@ int main() {
     while(true) {
         // if A is pressed add a new bouncer
         if(bn::keypad::a_pressed()) {
-            add_bouncer(bouncers);
+            add_bouncer(bouncers, rng);
         }
 
         // // if B is pressed print the average to the console
