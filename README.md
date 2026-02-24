@@ -8,4 +8,4 @@ Play Online:
 https://nadia5129.github.io/bouncers/
 
 Demo:
-![Game Demo]](demo.gif)
+![Game Demo](demo.gif)
